@@ -304,6 +304,678 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "14 POST consultation OK",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"patient\": \"{{patientId}}\",\r\n  \"date\": \"2026-10-05\",\r\n  \"motif\": \"Contrôle régulier\",\r\n  \"traitement\": \"Aucun\",\r\n  \"medecin\": \"Dr Helmi\",\r\n  \"notes\": \"Patient en bonne santé\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/consultations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "consultations"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "14 POST consultation OK",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"patient\": \"{{patientId}}\",\r\n  \"date\": \"2026-10-05\",\r\n  \"motif\": \"Contrôle régulier\",\r\n  \"traitement\": \"Aucun\",\r\n  \"medecin\": \"Dr Helmi\",\r\n  \"notes\": \"Patient en bonne santé\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/consultations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "consultations"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "content-length",
+              "value": "310"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"136-ZWBfcN7DM7uV49jATlZtZXeNJtA\""
+            },
+            {
+              "key": "date",
+              "value": "Thu, 15 Oct 2026 17:52:30 GMT"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"patient\": \"6ad0ed2a788d3d08c2aedd85\",\n  \"date\": \"2026-10-05T00:00:00.000Z\",\n  \"motif\": \"Contrôle régulier\",\n  \"traitement\": \"Aucun\",\n  \"medecin\": \"Dr Helmi\",\n  \"notes\": \"Patient en bonne santé\",\n  \"statut\": \"En attente\",\n  \"createdAt\": \"2026-10-15T17:52:30.148Z\",\n  \"updatedAt\": \"2026-10-15T17:52:30.148Z\",\n  \"id\": \"6ad112de9f9fd91159f2af93\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "15 POST sans motif 400",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"patient\": \"{{patientId}}\",\r\n  \"date\": \"2026-10-05\",\r\n  \"medecin\": \"Dr Helmi\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/consultations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "consultations"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "15 POST sans motif 400",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"patient\": \"{{patientId}}\",\r\n  \"date\": \"2026-10-05\",\r\n  \"medecin\": \"Dr Helmi\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/consultations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "consultations"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "content-length",
+              "value": "71"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"47-RQGqn6uKhDCRLQamzrUq2q4I6cI\""
+            },
+            {
+              "key": "date",
+              "value": "Thu, 15 Oct 2026 17:53:40 GMT"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"message\": \"Données invalides\",\n  \"erreurs\": [\n    \"Le motif est obligatoire\"\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "16 POST patient inexistant 404",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"patient\": \"64f9e2c8a7b1b23d45f67890\",\r\n  \"date\": \"2026-10-05\",\r\n  \"motif\": \"Contrôle\",\r\n  \"medecin\": \"Dr Helmi\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/consultations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "consultations"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "16 POST patient inexistant 404",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"patient\": \"64f9e2c8a7b1b23d45f67890\",\r\n  \"date\": \"2026-10-05\",\r\n  \"motif\": \"Contrôle\",\r\n  \"medecin\": \"Dr Helmi\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/consultations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "consultations"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "content-length",
+              "value": "33"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"21-pbzAQCgNyN1biarjIvFBJDZ+31k\""
+            },
+            {
+              "key": "date",
+              "value": "Thu, 15 Oct 2026 17:54:33 GMT"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"message\": \"Patient introuvable\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "17 GET toutes les consultations 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/consultations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "consultations"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "17 GET toutes les consultations 200",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/consultations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "consultations"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "content-length",
+              "value": "354"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"162-ZGEUyXMsW/Oee4tFcmtRwfI1pZ8\""
+            },
+            {
+              "key": "date",
+              "value": "Thu, 15 Oct 2026 17:55:33 GMT"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n  {\n    \"patient\": {\n      \"nom\": \"Sta\",\n      \"prenom\": \"Mohamed Ali\",\n      \"id\": \"6ad0ed2a788d3d08c2aedd85\"\n    },\n    \"date\": \"2026-10-05T00:00:00.000Z\",\n    \"motif\": \"Contrôle régulier\",\n    \"traitement\": \"Aucun\",\n    \"medecin\": \"Dr Helmi\",\n    \"notes\": \"Patient en bonne santé\",\n    \"statut\": \"En attente\",\n    \"createdAt\": \"2026-10-15T17:52:30.148Z\",\n    \"updatedAt\": \"2026-10-15T17:52:30.148Z\",\n    \"id\": \"6ad112de9f9fd91159f2af93\"\n  }\n]"
+        }
+      ]
+    },
+    {
+      "name": "18 GET filtre patient 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/consultations?patient={{patientId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "consultations"
+          ],
+          "query": [
+            {
+              "key": "patient",
+              "value": "{{patientId}}"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "18 GET filtre patient 200",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/consultations?patient={{patientId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "consultations"
+              ],
+              "query": [
+                {
+                  "key": "patient",
+                  "value": "{{patientId}}"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "content-length",
+              "value": "354"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"162-ZGEUyXMsW/Oee4tFcmtRwfI1pZ8\""
+            },
+            {
+              "key": "date",
+              "value": "Thu, 15 Oct 2026 17:56:04 GMT"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n  {\n    \"patient\": {\n      \"nom\": \"Sta\",\n      \"prenom\": \"Mohamed Ali\",\n      \"id\": \"6ad0ed2a788d3d08c2aedd85\"\n    },\n    \"date\": \"2026-10-05T00:00:00.000Z\",\n    \"motif\": \"Contrôle régulier\",\n    \"traitement\": \"Aucun\",\n    \"medecin\": \"Dr Helmi\",\n    \"notes\": \"Patient en bonne santé\",\n    \"statut\": \"En attente\",\n    \"createdAt\": \"2026-10-15T17:52:30.148Z\",\n    \"updatedAt\": \"2026-10-15T17:52:30.148Z\",\n    \"id\": \"6ad112de9f9fd91159f2af93\"\n  }\n]"
+        }
+      ]
+    },
+    {
+      "name": "19 GET filtre statut 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/consultations?statut=Terminée",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "consultations"
+          ],
+          "query": [
+            {
+              "key": "statut",
+              "value": "Terminée"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "19 GET filtre statut 200",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/consultations?statut=Terminée",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "consultations"
+              ],
+              "query": [
+                {
+                  "key": "statut",
+                  "value": "Terminée"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "content-length",
+              "value": "2"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+            },
+            {
+              "key": "date",
+              "value": "Thu, 15 Oct 2026 17:56:34 GMT"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "[]"
+        }
+      ]
+    },
+    {
+      "name": "20 PUT consultation 200",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"statut\": \"Terminée\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/consultations/6ad1147b7785ec137605c748",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "consultations",
+            "6ad1147b7785ec137605c748"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "20 PUT consultation 200",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"statut\": \"Terminée\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/consultations/6ad1147b7785ec137605c748",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "consultations",
+                "6ad1147b7785ec137605c748"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "content-length",
+              "value": "309"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"135-VuX8k63KRy0oK20BbGlAicGSr8Q\""
+            },
+            {
+              "key": "date",
+              "value": "Thu, 15 Oct 2026 18:00:03 GMT"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"patient\": \"6ad0ed2a788d3d08c2aedd85\",\n  \"date\": \"2026-10-05T00:00:00.000Z\",\n  \"motif\": \"Contrôle régulier\",\n  \"traitement\": \"Aucun\",\n  \"medecin\": \"Dr Helmi\",\n  \"notes\": \"Patient en bonne santé\",\n  \"statut\": \"Terminée\",\n  \"createdAt\": \"2026-10-15T17:59:23.856Z\",\n  \"updatedAt\": \"2026-10-15T18:00:03.704Z\",\n  \"id\": \"6ad1147b7785ec137605c748\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "21 DELETE consultation 204",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/consultations/6ad112de9f9fd91159f2af93",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "consultations",
+            "6ad112de9f9fd91159f2af93"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "21 DELETE consultation 204",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/consultations/6ad112de9f9fd91159f2af93",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "consultations",
+                "6ad112de9f9fd91159f2af93"
+              ]
+            }
+          },
+          "status": "No Content",
+          "code": 204,
+          "_postman_previewlanguage": "text",
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "date",
+              "value": "Thu, 15 Oct 2026 18:01:29 GMT"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": ""
+        }
+      ]
     }
   ],
   "variable": [
